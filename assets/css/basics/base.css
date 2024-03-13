@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: beige;
 }
 
 h1,
@@ -32,5 +33,52 @@ img {
     display: flex;
     flex-direction: column;
     margin: 30px;
-    background-color: rgb(182, 217, 219);
+}
+
+
+.mail-list {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.mail-link {
+    display: flex;
+    padding: 1em;
+    margin: 1em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.mail-link:hover {
+    text-decoration: underline;
+    background-color: rgb(221, 239, 241);
+}
+.mail .sender {
+    margin-right: 9em;
+    font-weight: bold;
+}
+
+.mail .subject {
+    flex-grow: 1;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.mail .date {
+    color: #888;
+}
+
+.mail-link.read {
+    background-color: #fff; 
+}
+
+.mail-link.unread {
+    background-color: #f0f0ff; 
+    font-weight: bold; 
 }

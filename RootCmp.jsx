@@ -9,6 +9,7 @@ import { MailInbox } from "./views/MailInBox.jsx";
 import { MailTrash } from "./views/MailTrash.jsx";
 import { MailSent } from "./views/MailSent.jsx";
 import { MailStarred } from "./views/MailStarred.jsx";
+import { MailDetail } from "./views/MailDetail.jsx";
 
 export function App() {
     return <Router>
@@ -22,6 +23,7 @@ export function App() {
                     <Route path="/mail/starred" element={<MailStarred />} />
                     <Route path="/mail/sent" element={<MailSent />} />
                     <Route path="/mail/trash" element={<MailTrash />} />
+                    <Route path="/mail/:emailId" element={<MailDetail />} />
                 </Route>
 
             </Routes>
