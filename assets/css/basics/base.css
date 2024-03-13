@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'Sixtyfour-Regular';
+    src: url(/assets/fonts/Sixtyfour-Regular.ttf) format('truetype');
+    /* Ajoutez d'autres formats si nécessaire */
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 body {
     margin: 0;
     background-color: #ecf0f1;
@@ -70,20 +79,21 @@ img {
     background-color: rgb(221, 239, 241);
 }
 
-.mail .sender {
+.sender {
     margin-right: 9em;
     font-weight: bold;
 }
 
-.mail .subject {
+.subject {
     flex-grow: 1;
     font-family: 'Arial', sans-serif;
     font-size: 16px;
     color: #333;
 }
 
-.mail .date {
+.date {
     color: #888;
+    margin-right: 2em;
 }
 
 .mail-link.read {
@@ -98,6 +108,155 @@ img {
 .form-newMsg {
     display: flex;
     flex-direction: column;
-    gap:7px;
+    gap: 7px;
     width: 30vw;
+}
+
+.trash-list {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.trash-mail {
+    display: flex;
+    padding: 1em;
+    margin: .2em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.fa-solid.fa-inbox {
+    color: blue;
+}
+
+.fa-regular.fa-star {
+    color: goldenrod;
+}
+
+
+.fa-regular.fa-paper-plane {
+    color: rgb(14, 153, 14);
+}
+
+.fa-regular.fa-trash-can {
+    color: red;
+}
+
+.post-card {
+    width: 30vw;
+    height: 60vh;
+    background: #e4e4e4;
+    box-shadow: 10px 10px 20px #afafaf,
+        -10px -10px 20px #ffffff;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* Ajustez selon vos besoins */
+}
+
+.welcome-msg {
+    margin-bottom: 80px;
+    font-size: 3em;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.post-card textarea {
+    resize: none;
+    width: 100%;
+    height: 40%;
+    padding: 5px;
+    font-family: Sans-serif;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+}
+
+.button-row {
+    margin-top: 7px;
+    margin-bottom: 3px;
+}
+
+.button-row button {
+    border-radius: 10px;
+    border: none;
+    width: 120px;
+    height: 100px;
+    font-family: Sans-serif;
+    color: #fff;
+    box-shadow: 0px 4px 4px #bdbdbd;
+    transition: all 0.3s ease-in-out;
+    margin: 4px;
+}
+
+.button-row button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.25);
+}
+
+.upload {
+    font-size: 30px;
+    background: linear-gradient(180deg, #2b5dff 100%, #c329c9 0%);
+}
+
+.feeling {
+    font-size: 30px;
+    background: linear-gradient(180deg, #0095b7 0%, #5daddb 100%);
+}
+
+.life-event {
+    font-size: 30px;
+    background: linear-gradient(180deg, #0095b7 0%, #5012ba 100%);
+}
+
+.people {
+    font-size: 30px;
+    background: linear-gradient(180deg, #33c4e5 0%, #5012ba 100%);
+}
+
+.location {
+    font-size: 30px;
+    background: linear-gradient(180deg, #c329c9 0%, #2b5dff 100%);
+}
+
+.live-video {
+    font-size: 30px;
+    background: linear-gradient(180deg, #c800ff 0%, #ff076a 51%, #ff6c6c 100%);
+   
+}
+
+.post {
+    width: 100%;
+    padding: 10px;
+    margin-top: 7px;
+    border: none;
+    border-radius: 11px;
+    font-size: 18px;
+    font-family: Sans-serif;
+    color: #fff;
+    background-size: 200% 100%;
+    background-image: linear-gradient(145deg, #ff00e1, #0000ff, #00d9ff);
+    transition: 0.3s ease-out;
+}
+
+.post:hover {
+    background-position: 99%;
 }

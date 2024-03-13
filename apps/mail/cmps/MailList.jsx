@@ -1,14 +1,16 @@
-const { Link } = ReactRouterDOM
+const { Link } = ReactRouterDOM;
 import { MailService } from "../services/mail.service.js";
 
 export function MailList() {
-
     // mail.service.js
     const emailList = MailService.getEmailList();
 
-    return (
+    const handleDeleteClick = (event, emailId) => {
+        event.stopPropagation();
+        MailService.deleteMail(emailId);
+    };
 
-        
+    return (
         <ul className="mail-list">
             {emailList.map((email) => (
                 <li key={email.id} className="mail">
@@ -16,10 +18,12 @@ export function MailList() {
                         <strong className="sender">{email.sender}</strong>
                         <div className="subject">{email.subject}</div>
                         <div className="date">{email.date}</div>
+                        <div className="delete-button" onClick={(event) => handleDeleteClick(event, email.id)}>
+                            <i className="fa-regular fa-trash-can"></i>
+                        </div>
                     </Link>
                 </li>
             ))}
         </ul>
-
     );
 }
