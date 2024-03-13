@@ -21,3 +21,16 @@ img {
     width: 100%;
     object-fit: cover;
 }
+
+
+.nav-aside {
+    display: flex;
+    gap: 100px;
+}
+
+.mail-navbar {
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    background-color: rgb(182, 217, 219);
+}
