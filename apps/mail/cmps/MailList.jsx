@@ -5,11 +5,13 @@ export function MailList() {
 
     // mail.service.js
     const emailList = MailService.getEmailList();
-    console.log("emailList", emailList)
+    const unreadCount = MailService.getUnreadCount();
+
 
 
     return (
 
+        
         <ul className="mail-list">
             {emailList.map((email) => (
                 <li key={email.id} className="mail">

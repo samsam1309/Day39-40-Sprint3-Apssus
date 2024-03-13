@@ -9,6 +9,13 @@ const emailList = [
     { id: 6, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
     { id: 7, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
     { id: 8, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
+    { id: 9, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
+    { id: 10, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
+    { id: 11, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
+    { id: 12, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
+    { id: 13, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
+    { id: 14, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
+    { id: 15, sender: 'jane@example.com', subject: 'Project Update', date: '2024-03-14',isRead: true, content: "HELLO MR JHON, curhcycbuybcuzbczhcuizehcezcbuzbcyurbcrycbryubcuyrzcbcbdbchjuyzbcjhzbcuy" },
 ];
 
 export const MailService = {
@@ -20,4 +27,6 @@ export const MailService = {
             email.isRead = true;
         }
     },
+    getUnreadCount: () => emailList.filter(email => !email.isRead).length,
+
 };

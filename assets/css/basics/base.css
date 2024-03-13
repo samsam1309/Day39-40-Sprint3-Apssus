@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: beige;
+    background-color: rgb(252, 252, 225);
 }
 
 h1,
@@ -29,6 +29,13 @@ img {
     gap: 100px;
 }
 
+.mail-header {
+    background-color: #cbeded;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
 .mail-navbar {
     display: flex;
     flex-direction: column;
@@ -45,7 +52,7 @@ img {
 .mail-link {
     display: flex;
     padding: 1em;
-    margin: 1em;
+    margin: .2em;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: white;
@@ -58,6 +65,7 @@ img {
     text-decoration: underline;
     background-color: rgb(221, 239, 241);
 }
+
 .mail .sender {
     margin-right: 9em;
     font-weight: bold;
@@ -75,10 +83,10 @@ img {
 }
 
 .mail-link.read {
-    background-color: #fff; 
+    background-color: #fff;
 }
 
 .mail-link.unread {
-    background-color: #f0f0ff; 
-    font-weight: bold; 
+    background-color: #f0f0ff;
+    font-weight: bold;
 }

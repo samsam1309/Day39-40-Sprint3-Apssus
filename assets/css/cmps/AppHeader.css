@@ -1,13 +1,13 @@
 header {
-    background-color: rgb(234, 193, 90);
+    background-color: #e74c3c;
+    color: white;
     border-bottom: 2px solid white;
 }
 
 .app-header {
-    background-color: rgb(234, 193, 90);
     display: flex;
     justify-content: space-between;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 .logo {
