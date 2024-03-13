@@ -1,10 +1,11 @@
 header {
 
-    background: rgb(234, 193, 90);
+    background-color: rgb(234, 193, 90);
     border-bottom: 2px solid white;
 }
 
 .app-header {
+    background-color: rgb(234, 193, 90);
     display: flex;
     justify-content: space-between;
     padding: 20px 0;
