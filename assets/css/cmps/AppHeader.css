@@ -7,12 +7,17 @@ header {
 .app-header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 1em;
 }
 
 .logo {
-    font-size: 2.7em;
-    margin-left: 30px;
+    font-family: 'YourChosenFont', sans-serif; /* Remplacez 'YourChosenFont' par le nom de la police que vous aimez */
+    font-size: 2.3em;
+    margin-left: 1em;
+    padding: 10px; /* Ajoutez un peu de marge intérieure pour plus de style */
+    border: 2px solid white; /* Ajoutez une bordure blanche */
+    border-radius: 8px; /* Ajoutez des coins arrondis à la bordure */
+    color: white; /* Couleur du texte du logo */
 }
 
 nav {

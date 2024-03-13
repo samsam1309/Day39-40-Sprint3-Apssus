@@ -5,7 +5,7 @@ export function MailHeader() {
 
     return (
         <div className="mail-header">
-            <h2 className="logo">Mail <i className="fa-regular fa-envelope"></i></h2>
+            <h2 className="mail-logo">Mail <i className="fa-regular fa-envelope"></i></h2>
             <NavLink to="/mail/compose"><i className="fa-solid fa-pen"></i> Compose</NavLink>
         </div>
     );
