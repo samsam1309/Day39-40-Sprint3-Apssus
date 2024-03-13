@@ -5,9 +5,6 @@ export function MailList() {
 
     // mail.service.js
     const emailList = MailService.getEmailList();
-    const unreadCount = MailService.getUnreadCount();
-
-
 
     return (
 

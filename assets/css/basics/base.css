@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: rgb(252, 252, 225);
+    background-color: #ecf0f1;
 }
 
 h1,
@@ -31,9 +31,13 @@ img {
 
 .mail-header {
     background-color: #cbeded;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px;
-    text-align: center;
+    display: flex;
+}
+
+.mail-header h2 {
+    flex-grow: .2;
 }
 
 .mail-navbar {
@@ -89,4 +93,11 @@ img {
 .mail-link.unread {
     background-color: #f0f0ff;
     font-weight: bold;
+}
+
+.form-newMsg {
+    display: flex;
+    flex-direction: column;
+    gap:7px;
+    width: 30vw;
 }
