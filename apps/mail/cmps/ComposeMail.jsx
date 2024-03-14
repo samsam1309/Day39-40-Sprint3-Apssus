@@ -1,4 +1,4 @@
-const {useState} = React
+const { useState } = React
 
 import { MailService } from '../services/mail.service.js';
 export function ComposeEmail() {
@@ -30,6 +30,7 @@ export function ComposeEmail() {
         setRecipient('');
         setSubject('');
         setContent('');
+
     };
 
     return (

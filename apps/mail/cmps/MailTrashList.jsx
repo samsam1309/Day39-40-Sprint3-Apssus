@@ -1,14 +1,18 @@
-// MailTrashList.jsx
-
-const {useState} = React
+const { useState, useEffect } = React
 import { MailService } from '../services/mail.service.js';
 
 export function MailTrashList() {
-  const [deletedEmailList, setDeletedEmailList] = useState(MailService.getDeletedEmailList());
+  const [deletedEmailList, setDeletedEmailList] = useState([]);
 
-  const handleDelete = (emailId) => {
-    MailService.definitivelyDeleteMail(emailId);
+  useEffect(() => {
     setDeletedEmailList(MailService.getDeletedEmailList());
+  }, []); 
+  const handleDelete = (emailId) => {
+    const isConfirmed = window.confirm('Are you sure you want to permanently delete this email?');
+    if (isConfirmed) {
+      MailService.definitivelyDeleteMail(emailId);
+      setDeletedEmailList([...MailService.getDeletedEmailList()]); // Mettre à jour avec une nouvelle référence
+    }
   };
 
   return (
@@ -19,8 +23,7 @@ export function MailTrashList() {
             <strong className="sender">{email.sender}</strong>
             <div className="subject">{email.subject}</div>
             <div className="date">{email.date}</div>
-            <button className="delete-button" onClick={() => handleDelete(email.id)}><i className="fa-regular fa-trash-can"></i></button>
-
+            <button className="delete-trash-button" onClick={() => handleDelete(email.id)}><i className="fa-regular fa-trash-can"></i></button>
           </li>
         </div>
       ))}

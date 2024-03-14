@@ -2,18 +2,13 @@ const { NavLink, Outlet } = ReactRouterDOM
 import { MailHeader } from "../cmps/MailHeader.jsx";
 import { MailService } from "../services/mail.service.js";
 
-
 export function MailIndex() {
-
     const unreadCount = MailService.getUnreadCount();
 
     return (
         <div>
             <MailHeader />
-            <aside className="nav-aside" >
-
-
-
+            <aside className="nav-aside">
                 <nav className="mail-navbar">
                     <NavLink to="/mail/inbox"><i className="fa-solid fa-inbox"></i> Inbox ({unreadCount}) </NavLink>
                     <NavLink to="/mail/starred"><i className="fa-regular fa-star"></i> Starred</NavLink>
@@ -22,7 +17,7 @@ export function MailIndex() {
                 </nav>
                 <Outlet />
             </aside>
+           
         </div>
     );
 }
-
