@@ -1,30 +1,48 @@
-const { useState } = React
+const { useState, useEffect } = React
 const { Link } = ReactRouterDOM;
 import { MailService } from '../services/mail.service.js';
 
 export function MailList() {
     const [searchQuery, setSearchQuery] = useState('');
-    const [showUnread, setShowUnread] = useState(false); // Par défaut, ne montre que les e-mails lus
+    const [showUnread, setShowUnread] = useState(false);
     const [deletedEmailList, setDeletedEmailList] = useState([]);
+    const [sortedEmails, setSortedEmails] = useState([]); // Nouvel état pour stocker les e-mails triés
+
+    useEffect(() => {
+        // Tri des e-mails par date lors du montage initial
+        sortEmailsByDate();
+    }, []);
 
     const handleDeleteClick = (emailId) => {
         MailService.deleteMail(emailId);
-        const deletedEmail = MailService.getDeletedEmailList()[0]; // Obtenez le dernier e-mail supprimé
-        setDeletedEmailList([deletedEmail, ...deletedEmailList]); // Mettre à jour la liste des e-mails supprimés
+        const deletedEmail = MailService.getDeletedEmailList()[0];
+        setDeletedEmailList([deletedEmail, ...deletedEmailList]);
     };
 
     const handleSearchChange = (e) => {
-        setSearchQuery(e.target.value); // Met à jour la requête de recherche lors de la saisie dans le champ de recherche
+        setSearchQuery(e.target.value);
     };
 
     const handleToggleUnread = () => {
-        setShowUnread(!showUnread); // Inverse l'état d'affichage des e-mails non lus
+        setShowUnread(!showUnread);
     };
 
-    // Filtrer la liste des e-mails en fonction de la requête de recherche et de l'état d'affichage des e-mails non lus
-    const filteredEmails = MailService.getEmailList().filter((email) => {
-        const matchesSearchQuery = email.subject.toLowerCase().includes(searchQuery.toLowerCase()); // Vérifie si le sujet de l'e-mail correspond à la requête de recherche
-        const matchesUnread = showUnread ? !email.isRead : true; // Vérifie si l'e-mail est lu ou non en fonction de l'état d'affichage des e-mails non lus
+    const sortEmailsByDate = () => {
+        const emails = MailService.getEmailList().slice(); // Copie de la liste d'e-mails
+        const sortedEmails = emails.sort((a, b) => new Date(b.date) - new Date(a.date)); // Tri par date décroissante
+        setSortedEmails(sortedEmails);
+    };
+
+    const sortEmailsByTitle = () => {
+        const emails = MailService.getEmailList().slice(); // Copie de la liste d'e-mails
+        const sortedEmails = emails.sort((a, b) => a.subject.localeCompare(b.subject)); // Tri par titre
+        setSortedEmails(sortedEmails);
+    };
+
+    // Filtrer et afficher les e-mails selon la requête de recherche et l'état d'affichage des e-mails non lus
+    const filteredEmails = sortedEmails.filter((email) => {
+        const matchesSearchQuery = email.subject.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesUnread = showUnread ? !email.isRead : true;
         return matchesSearchQuery && matchesUnread;
     });
 
@@ -45,11 +63,16 @@ export function MailList() {
                     />
                     Show Unread Emails
                 </label>
+
+
+                <button onClick={sortEmailsByDate}>Sort by Date</button>
+                <button onClick={sortEmailsByTitle}>Sort by Title</button>
+
             </div>
+
             <ul className="mail-list">
                 {filteredEmails.map((email) => (
                     <li key={email.id} className="mail">
-
                         <Link to={`/mail/${email.id}`} className={`mail-link ${email.isRead ? "read" : "unread"}`}>
                             <strong className="sender">{email.sender}</strong>
                             <div className="subject">{email.subject}</div>
@@ -58,10 +81,10 @@ export function MailList() {
                         <button className="delete-button" onClick={() => handleDeleteClick(email.id)}>
                             <i className="fa-regular fa-trash-can"></i>
                         </button>
-                        <button className="delete-button" >
+                        <button className="delete-button">
                             <i className="fa-regular fa-star"></i>
                         </button>
-                        <button className="delete-button" >
+                        <button className="delete-button">
                             <i className="fa-regular fa-paper-plane"></i>
                         </button>
                     </li>
