@@ -33,6 +33,26 @@ img {
 }
 
 
+.about {
+    padding: 20px;
+    text-align: center; /* Center align the content */
+    margin: 0 auto; /* Center the section horizontally */
+    width: 60%; /* Set the width to 60% of the viewport width */
+  }
+  
+  .about h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif; /* Specify a nice font for the heading */
+  }
+  
+  .about p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Specify a nice font for the paragraph */
+    font-size: 1.1em;
+    line-height: 1.6; /* Adjust line height for better readability */
+  }
+  
+
 .nav-aside {
     display: grid;
     grid-template-rows: 5% 95%;
@@ -84,7 +104,7 @@ img {
     /* Ajout de cette ligne pour enlever le marker */
 }
 
-.delete-button {
+.export-btn {
     display: none;
     font-size: 1.2em;
     border: none;
@@ -99,7 +119,7 @@ li.mail {
     width: 100%;
 }
 
-.mail:hover .delete-button {
+.mail:hover .export-btn {
     display: inline;
 }
 
@@ -156,13 +176,14 @@ li.mail {
     width: 30vw;
 }
 
-.trash-list {
+.trash-list, .starred-list {
     display: flex;
     flex-direction: column;
     width: 80%;
 }
 
-.trash-mail {
+.trash-mail,
+.starred-mail {
     display: flex;
     padding: 1em;
     margin: .2em;
@@ -174,6 +195,7 @@ li.mail {
     cursor: pointer;
 }
 
+
 .delete-trash-button {
     border: none;
     background-color: inherit;
@@ -184,7 +206,7 @@ li.mail {
     color: blue;
 }
 
-.fa-regular.fa-star {
+.fa-regular.fa-star,.fa-solid.fa-star {
     color: goldenrod;
 }
 
@@ -315,7 +337,10 @@ li.mail {
 }
 
 
-
+.delte-all-btn {
+    margin-top: 10px;
+    margin-left: 10px;
+}
 
 
 
@@ -363,6 +388,10 @@ input:hover {
 }
 
 
+.highlight {
+    background-color: lightgoldenrodyellow; /* Couleur de fond temporaire */
+}
+
 @media (width < 1050px) {
 
     .mail-link {
@@ -370,3 +399,5 @@ input:hover {
         flex-direction: column;
     }
 }
+
+

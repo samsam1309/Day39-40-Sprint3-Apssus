@@ -13,11 +13,17 @@ export function MailList() {
         sortEmailsByDate();
     }, []);
 
+    const removeFromSortedEmails = (emailId) => {
+        setSortedEmails(sortedEmails.filter(email => email.id !== emailId));
+    };
+
     const handleDeleteClick = (emailId) => {
         MailService.deleteMail(emailId);
+        removeFromSortedEmails(emailId); // Supprime également l'e-mail de sortedEmails
         const deletedEmail = MailService.getDeletedEmailList()[0];
         setDeletedEmailList([deletedEmail, ...deletedEmailList]);
     };
+
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -45,6 +51,33 @@ export function MailList() {
         const matchesUnread = showUnread ? !email.isRead : true;
         return matchesSearchQuery && matchesUnread;
     });
+
+    const handleToggleStarred = (emailId) => {
+        // Inverser l'état de l'étoile pour l'e-mail avec l'ID donné dans la liste des e-mails
+        const updatedEmailList = sortedEmails.map(email => {
+            if (email.id === emailId) {
+                return { ...email, isStarred: !email.isStarred };
+            }
+            return email;
+        });
+    
+        // Mettre à jour l'état de la liste des e-mails triés
+        setSortedEmails(updatedEmailList);
+    
+        // Appeler la méthode toggleStarred de MailService pour mettre à jour la liste des e-mails
+        MailService.toggleStarred(emailId);
+
+
+        setHighlightedEmailId(emailId);
+
+        // Supprimer la mise en surbrillance après 2 secondes
+        setTimeout(() => {
+            setHighlightedEmailId(null);
+        }, 2000);
+    
+    
+    };
+
 
     return (
         <div className="pr-list">
@@ -78,13 +111,13 @@ export function MailList() {
                             <div className="subject">{email.subject}</div>
                             <div className="date">{email.date}</div>
                         </Link>
-                        <button className="delete-button" onClick={() => handleDeleteClick(email.id)}>
+                        <button className="export-btn delete-button" onClick={() => handleDeleteClick(email.id)}>
                             <i className="fa-regular fa-trash-can"></i>
                         </button>
-                        <button className="delete-button">
-                            <i className="fa-regular fa-star"></i>
+                        <button className="export-btn starred-button" onClick={() => handleToggleStarred(email.id)}>
+                            {email.isStarred ?  <i className="fa-solid fa-star"></i>:<i className="fa-regular fa-star"></i>}
                         </button>
-                        <button className="delete-button">
+                        <button className="export-btn sented-button">
                             <i className="fa-regular fa-paper-plane"></i>
                         </button>
                     </li>
@@ -93,9 +126,3 @@ export function MailList() {
         </div>
     );
 }
-
-
-
-
-
-
