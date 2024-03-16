@@ -35,23 +35,55 @@ img {
 
 .about {
     padding: 20px;
-    text-align: center; /* Center align the content */
-    margin: 0 auto; /* Center the section horizontally */
-    width: 60%; /* Set the width to 60% of the viewport width */
-  }
-  
-  .about h1 {
+    text-align: center;
+    /* Center align the content */
+    margin: 0 auto;
+    /* Center the section horizontally */
+    width: 60%;
+    /* Set the width to 60% of the viewport width */
+}
+
+.about h1 {
     font-size: 2em;
     margin-bottom: 20px;
-    font-family: Arial, sans-serif; /* Specify a nice font for the heading */
-  }
-  
-  .about p {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Specify a nice font for the paragraph */
+    font-family: Arial, sans-serif;
+    /* Specify a nice font for the heading */
+}
+
+.about p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Specify a nice font for the paragraph */
     font-size: 1.1em;
-    line-height: 1.6; /* Adjust line height for better readability */
-  }
-  
+    line-height: 1.6;
+    /* Adjust line height for better readability */
+}
+
+.mail-details-container {
+    padding: 20px;
+}
+
+.mail-details {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    
+}
+
+.mail-details section {
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+.mail-details header {
+    font-weight: bold;
+    background-color: #ecf0f1;
+    color: black;
+}
+
+
+
+
+/* Ajoutez d'autres styles CSS selon vos besoins */
 
 .nav-aside {
     display: grid;
@@ -176,7 +208,8 @@ li.mail {
     width: 30vw;
 }
 
-.trash-list, .starred-list {
+.trash-list,
+.starred-list {
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -206,7 +239,8 @@ li.mail {
     color: blue;
 }
 
-.fa-regular.fa-star,.fa-solid.fa-star {
+.fa-regular.fa-star,
+.fa-solid.fa-star {
     color: goldenrod;
 }
 
@@ -389,8 +423,23 @@ input:hover {
 
 
 .highlight {
-    background-color: lightgoldenrodyellow; /* Couleur de fond temporaire */
+    background-color: lightgoldenrodyellow;
+    /* Couleur de fond temporaire */
 }
+
+
+
+
+@keyframes sentAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.sent-button {
+    animation: sentAnimation 0.5s ease;
+}
+
 
 @media (width < 1050px) {
 
@@ -399,5 +448,3 @@ input:hover {
         flex-direction: column;
     }
 }
-
-

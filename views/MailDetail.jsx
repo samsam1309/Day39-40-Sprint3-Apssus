@@ -7,14 +7,26 @@ export function MailDetail() {
     const emailDetails = MailService.getEmailById(emailId);
 
     return (
-        <div>
+        <div className="mail-details-container">
             <h2>Email Details</h2>
             {emailDetails && (
-                <div>
-                    <strong>Sender: </strong>{emailDetails.sender}<br />
-                    <strong>Subject: </strong>{emailDetails.subject}<br />
-                    <strong>Date: </strong>{emailDetails.date}<br />
-                    <p>Content: {emailDetails.content}</p>
+                <div className="mail-details">
+                    <section>
+                        <header>Sender:</header>
+                        <div>{emailDetails.sender}</div>
+                    </section>
+                    <section>
+                        <header>Subject:</header>
+                        <div>{emailDetails.subject}</div>
+                    </section>
+                    <section>
+                        <header>Date:</header>
+                        <div>{emailDetails.date}</div>
+                    </section>
+                    <section>
+                        <header>Content:</header>
+                        <div>{emailDetails.content}</div>
+                    </section>
                 </div>
             )}
         </div>

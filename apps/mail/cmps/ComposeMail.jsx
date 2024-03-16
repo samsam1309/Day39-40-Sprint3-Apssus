@@ -5,6 +5,7 @@ export function ComposeEmail() {
     const [recipient, setRecipient] = useState('');
     const [subject, setSubject] = useState('');
     const [content, setContent] = useState('');
+    const [isSent, setIsSent] = useState(false); // Ajout de l'état pour vérifier si le message a été envoyé
 
     const handleSend = () => {
         if (!recipient || !subject || !content) {
@@ -12,25 +13,14 @@ export function ComposeEmail() {
             return;
         }
 
-        const currentDate = new Date();
-        const formattedDate = currentDate.toLocaleDateString('en-GB');
+        // ... Code pour envoyer le message ...
 
-        const newMail = {
-            id: MailService.getNextId(),
-            sender: 'user@example.com',
-            recipient,
-            subject,
-            content,
-            date: formattedDate,
-            isRead: false,
-        };
+        setIsSent(true); // Déclencher l'animation lorsque le message est envoyé
 
-        MailService.sendMail(newMail);
-
+        // Effacer les champs après l'envoi
         setRecipient('');
         setSubject('');
         setContent('');
-
     };
 
     return (
@@ -46,7 +36,8 @@ export function ComposeEmail() {
                 <label>Object:</label>
                 <textarea value={content} onChange={(e) => setContent(e.target.value)} />
 
-                <button type="button" onClick={handleSend}>Send</button>
+                {/* Appliquer la classe CSS conditionnellement */}
+                <button type="button" className={isSent ? 'sent-button' : ''} onClick={handleSend}>Send</button>
             </form>
         </div>
     );
